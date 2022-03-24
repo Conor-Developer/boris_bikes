@@ -28,7 +28,7 @@ describe DockingStation do
   it 'Cant accept more bikes at full capacity' do 
     docking_station = DockingStation.new
     bike = Bike.new 
-    20.times { docking_station.dock (bike) }
+    docking_station.DEFAULT_CAPACITY.times { docking_station.dock (bike) }
     expect{docking_station.dock(bike)}.to raise_error("No more spaces to dock bike")
   end
 end
