@@ -2,7 +2,6 @@ require 'docking_station'
 
 describe DockingStation do
 
-
   it 'checks if bikes are docked' do
     station = DockingStation.new
     expect(station.no_of_bikes).to be_an_instance_of(Integer)
