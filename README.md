@@ -83,3 +83,39 @@ graph TD;
     C -->|25| D[Capacity = 25]
     C -->|DEFAULT_CAPACITY| E[Capacity = 20]
 ```
+
+`As a member of the public,
+So that I reduce the chance of getting a broken bike in future,
+I'd like to report a bike as broken when I return it.`
+
+|  Objects        |  Messages      |
+| ----------      | -------------  | 
+| Person |                |
+| DockingStation  |   |
+| Bike  |  broken? |
+
+```mermaid
+    graph TD;
+      Person-->DockingStation;
+    DockingStation -->Bike;
+    Bike --> broken?;
+```
+
+`As a maintainer of the system,
+So that I can manage broken bikes and not disappoint users,
+I'd like docking stations not to release broken bikes.`
+
+|  Objects        |  Messages      |
+| ----------      | -------------  | 
+| System Maintainer |                |
+| DockingStation  |  release_bike |
+| Bike  |  broken? |
+
+```mermaid
+    graph TD
+    A[System Maintainer] -->B(Docking Station)
+    B --> C(Bike)
+    C --> D(working?)
+    D --> |if true|E[release_bike]
+```
+  

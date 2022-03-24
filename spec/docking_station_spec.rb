@@ -42,4 +42,11 @@ describe DockingStation do
   expect(docking_station.capacity).to eq 20
  end
 
+ it 'broken bikes to not be released' do 
+  docking_station =DockingStation.new
+  bike = Bike.new
+  bike.working?(false)
+  docking_station.dock(bike)
+  expec
+ end 
 end

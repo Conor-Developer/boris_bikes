@@ -47,8 +47,9 @@ class DockingStation
 end
 
 class Bike
+  attr_reader :working?
 
-  def working?
-    true
+  def working? (working)
+    working ? true : false
   end
 end
