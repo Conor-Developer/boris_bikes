@@ -77,8 +77,9 @@ graph TD;
 | DockingStation  |  capacity  |
 
 ```mermaid
-graph TD;
-    SystemMaintainer-->DockingStation;
-    DockingStation -->A(capacity(25))-->capacity=25; 
-    DockingStation -->capacity-->DEFAULT_CAPACITY; 
+    graph TD;
+    A[System Maintainer] -->B(Docking Station)
+    B --> C(Capacity)
+    C -->|25| D[Capacity = 25]
+    C -->|DEFAULT_CAPACITY| E[Capacity = 20]
 ```
