@@ -21,7 +21,7 @@ class DockingStation
     return @bikes.push(bike) if bike.instance_of?(Bike)
   end
 
-  def capacity(num)
+  def capacity(num = @DEFAULT_CAPACITY)
     num
   end
 

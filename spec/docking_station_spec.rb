@@ -37,6 +37,9 @@ describe DockingStation do
   expect(docking_station.capacity(25)).to eq 25
  end
 
- 
+ it 'default capacity should eq 20' do
+  docking_station = DockingStation.new
+  expect(docking_station.capacity).to eq 20
+ end
 
 end
