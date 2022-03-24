@@ -79,6 +79,6 @@ graph TD;
 ```mermaid
 graph TD;
     SystemMaintainer-->DockingStation;
-    DockingStation -->capacity(25)-->capacity=25; 
+    DockingStation -->A(capacity(25))-->capacity=25; 
     DockingStation -->capacity-->DEFAULT_CAPACITY; 
 ```
