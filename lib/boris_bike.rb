@@ -21,6 +21,10 @@ class DockingStation
     return @bikes.push(bike) if bike.instance_of?(Bike)
   end
 
+  def capacity(num)
+    num
+  end
+
   private 
 
   def full?
@@ -38,6 +42,8 @@ class DockingStation
       false
     end
   end
+
+
 end
 
 class Bike

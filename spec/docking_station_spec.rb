@@ -31,4 +31,12 @@ describe DockingStation do
     docking_station.DEFAULT_CAPACITY.times { docking_station.dock (bike) }
     expect{docking_station.dock(bike)}.to raise_error("No more spaces to dock bike")
   end
+
+ it 'Change capacity' do 
+  docking_station = DockingStation.new
+  expect(docking_station.capacity(25)).to eq 25
+ end
+
+ 
+
 end

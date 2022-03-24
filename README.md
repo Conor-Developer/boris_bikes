@@ -54,3 +54,31 @@ graph TD;
     DockingStation -->no_of_bikes;
 ```
    
+`As a system maintainer,
+So that busy areas can be served more effectively,
+I want to be able to specify a larger capacity when necessary.`
+
+
+|  Objects        |  Messages      |
+| ----------      | -------------  | 
+| SystemMaintainer |                |
+| DockingStation  |  capacity  |
+
+```mermaid
+graph TD;
+    SystemMaintainer-->DockingStation;
+    DockingStation -->capacity;
+```
+
+
+|  Objects        |  Messages      |
+| ----------      | -------------  | 
+| SystemMaintainer |                |
+| DockingStation  |  capacity  |
+
+```mermaid
+graph TD;
+    SystemMaintainer-->DockingStation;
+    DockingStation -->capacity(25)-->capacity=25; 
+    DockingStation -->capacity-->DEFAULT_CAPACITY; 
+```
