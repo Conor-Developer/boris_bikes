@@ -19,7 +19,7 @@ class DockingStation
   end
 
   def dock(bike)
-    return raise "No more spaces to dock bike" unless @bikes.empty? 
+    return raise "No more spaces to dock bike" unless @bikes.length < 20 
     return @bikes.push(bike) if bike.instance_of?(Bike)
   end
 end
