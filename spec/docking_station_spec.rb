@@ -24,4 +24,11 @@ describe DockingStation do
     docking_station.dock(bike)
     expect(docking_station.release_bike).to be_an_instance_of(Bike)
   end
+
+  it 'Cant accept more bikes at full capacity' do 
+    docking_station = DockingStation.new
+    bike = Bike.new 
+    docking_station.dock(bike)
+    expect{docking_station.dock(bike)}.to raise_error("No more spaces to dock bike")
+  end
 end
