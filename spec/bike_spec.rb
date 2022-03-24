@@ -1,4 +1,4 @@
-require 'docking_station'
+require_relative '../lib/boris_bike.rb'
 
 describe Bike do
 

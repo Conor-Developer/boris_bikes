@@ -8,6 +8,7 @@ class DockingStation
   def release_bike
     if @bikes.length > 0
       @bikes.pop
+      Bike.new
     else
       raise "There are no bikes available"
     end
