@@ -138,4 +138,26 @@ graph TD
     C -->|false| E[Dock Bike]
 ```
   
-  
+  `As a maintainer of the system,
+So that I can manage broken bikes and not disappoint users,
+I'd like vans to take broken bikes from docking stations and deliver them to garages to be fixed.`
+
+|  Objects        |  Messages      |
+| ----------      | -------------  | 
+| System Maintainer |                |
+| DockingStation  |              |
+| Bike  |            |
+| Van  | collect_broken_bikes, deliver_bikes |
+| Garage |                  |
+
+ 
+ ```mermaid
+  graph TD
+    A[System Maintainer] -->B[Docking Station]
+    B --> C(Bike)
+    C --> D[Bike.working?]
+    D -->|false| E[Van]
+    E --> F[Van.collect_broken_bikes]
+    F --> G[Van.deliver_bikes]
+    G --> H[Garage]
+```

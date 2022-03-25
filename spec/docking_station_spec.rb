@@ -49,13 +49,11 @@ describe DockingStation do
   end
 
   it 'should be able to dock a broken bike' do
-    # allow(bike).to receive(:working?).and_return(false)
     subject.dock(double(:working? => false))
     expect(subject.bikes.length).to eq 1
   end
 
   it 'should be able to dock a working bike' do
-    #allow(bike).to receive(:working?).and_return(true)
     subject.dock(double(:working? => true))
     expect(subject.bikes.length).to eq 1
   end

@@ -68,3 +68,8 @@ class Bike
     end
   end
 end
+
+
+class Van
+
+end
