@@ -1,6 +1,7 @@
 require_relative '../lib/boris_bike'
 
 describe DockingStation do
+  let(:bike) { double :bike }
 
   it 'checks if bikes are docked' do
     docking_station = DockingStation.new
@@ -9,7 +10,6 @@ describe DockingStation do
 
   it 'docks the bike to the station' do
     docking_station = DockingStation.new
-    bike = Bike.new
     expect(docking_station.dock(bike).length).to be > 0
   end
 
@@ -20,15 +20,14 @@ describe DockingStation do
 
   it 'Provide a Bike instance if available in docking station' do
     docking_station = DockingStation.new
-    bike = Bike.new
+    allow(bike).to receive(:working?).and_return(true)
     docking_station.dock(bike)
     expect(docking_station.release_bike).to be_an_instance_of(Bike)
   end
 
   it 'Cant accept more bikes at full capacity' do 
     docking_station = DockingStation.new
-    bike = Bike.new 
-    docking_station.capacity.times { docking_station.dock (bike) }
+    docking_station.capacity.times { docking_station.dock (double(:bike)) }
     expect{docking_station.dock(bike)}.to raise_error("No more spaces to dock bike")
   end
 
@@ -44,22 +43,19 @@ describe DockingStation do
 
   it 'broken bikes to not be released' do 
     docking_station = DockingStation.new
-    bike = Bike.new
-    bike.report_broken
+    allow(bike).to receive(:working?).and_return(false)
     docking_station.dock(bike)
     expect(docking_station.release_bike).to be_falsey
   end
 
   it 'should be able to dock a broken bike' do
-    bike = Bike.new
-    bike.report_broken
+    allow(bike).to receive(:working?).and_return(false)
     subject.dock(bike)
     expect(subject.bikes.length).to eq 1
   end
 
   it 'should be able to dock a working bike' do
-    bike = Bike.new
-    bike.working?
+    allow(bike).to receive(:working?).and_return(true)
     subject.dock(bike)
     expect(subject.bikes.length).to eq 1
   end

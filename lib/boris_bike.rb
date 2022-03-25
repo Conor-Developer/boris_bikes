@@ -26,7 +26,7 @@ class DockingStation
 
   def dock(bike)
     return raise "No more spaces to dock bike" unless full? == false
-    return @bikes.push(bike) if bike.instance_of?(Bike)
+    return @bikes.push(bike) #if bike.instance_of?(Bike)
   end
 
   private 
