@@ -21,7 +21,8 @@ describe DockingStation do
 
   it 'Provide a Bike instance if available in docking station' do
     docking_station = DockingStation.new
-    docking_station.dock(double(:working? => true))
+    docking_station.dock(Bike.new)
+    # docking_station.dock(double(:working? => true))
     expect(docking_station.release_bike).to be_an_instance_of(Bike)
   end
 

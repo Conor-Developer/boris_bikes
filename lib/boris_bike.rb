@@ -12,11 +12,13 @@ class DockingStation
   def release_bike
     return raise "There are no bikes available" unless empty? == false
 
-    if @bikes[0].working? == false
-      return false
-    else
-      @bikes.pop
-      Bike.new
+    @bikes.each_index do |index|
+      if @bikes[index].working? == false
+        return false
+      else 
+        released_bike = @bikes.delete_at(index)
+        return released_bike
+      end
     end
   end
 
