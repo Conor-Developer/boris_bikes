@@ -118,4 +118,24 @@ I'd like docking stations not to release broken bikes.`
     C --> D(working?)
     D --> |if true|E[release_bike]
 ```
+
+`As a maintainer of the system,
+So that I can manage broken bikes and not disappoint users,
+I'd like docking stations to accept returning bikes (broken or not).`
+
+
+|  Objects        |  Messages      |
+| ----------      | -------------  | 
+| System Maintainer |                |
+| Bike  |  working? |
+| DockingStation  |  dock |
+
+```mermaid
+graph TD
+    A[System Maintainer] -->B(Docking Station)
+    B --> C(Bike.working?)
+    C -->|true| D[Dock Bike]
+    C -->|false| E[Dock Bike]
+```
+  
   

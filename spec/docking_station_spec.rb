@@ -28,13 +28,13 @@ describe DockingStation do
   it 'Cant accept more bikes at full capacity' do 
     docking_station = DockingStation.new
     bike = Bike.new 
-    docking_station.DEFAULT_CAPACITY.times { docking_station.dock (bike) }
+    docking_station.capacity.times { docking_station.dock (bike) }
     expect{docking_station.dock(bike)}.to raise_error("No more spaces to dock bike")
   end
 
   it 'Change capacity' do 
-    docking_station = DockingStation.new
-    expect(docking_station.capacity(25)).to eq 25
+    docking_station = DockingStation.new(25)
+    expect(docking_station.capacity).to eq 25
   end
 
   it 'default capacity should eq 20' do
@@ -43,10 +43,12 @@ describe DockingStation do
   end
 
   it 'broken bikes to not be released' do 
-    docking_station =DockingStation.new
+    docking_station = DockingStation.new
     bike = Bike.new
     bike.report_broken
     docking_station.dock(bike)
     expect(docking_station.release_bike).to be_falsey
-  end 
+  end
+
+  
 end
