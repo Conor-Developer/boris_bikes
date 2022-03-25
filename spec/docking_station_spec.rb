@@ -45,7 +45,7 @@ describe DockingStation do
   it 'broken bikes to not be released' do 
     docking_station =DockingStation.new
     bike = Bike.new
-    bike.working?(false)
+    bike.report_broken
     docking_station.dock(bike)
     expect(docking_station.release_bike).to be_falsey
   end 

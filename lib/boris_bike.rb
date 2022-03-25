@@ -9,7 +9,7 @@ class DockingStation
   def release_bike
     return raise "There are no bikes available" unless empty? == false
 
-    if @bikes[0].working == false
+    if @bikes[0].working? == false
       return false
     else
       @bikes.pop
@@ -51,11 +51,15 @@ end
 
 class Bike
 
-  attr_reader :working
-
-  def working?(working)
-    @working = working
-    working ? true : false
+  def report_broken
+    @working = false
   end
 
+  def working?
+    if @working == false
+      return @working
+    else 
+      @working = true
+    end
+  end
 end

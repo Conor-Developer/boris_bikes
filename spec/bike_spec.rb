@@ -7,6 +7,11 @@ describe Bike do
     expect(bike).to be_an_instance_of(Bike)
   end
 
-  it { expect(Bike.new.working?(true)).to be_truthy }
-  it { expect(Bike.new.working?(false)).to be_falsey }
+  it {expect(Bike.new.working?).to be_truthy}
+
+  it 'Return false if bike is broken' do
+    bike = Bike.new
+    bike.report_broken
+    expect(bike.working?).to be_falsey
+  end
 end
