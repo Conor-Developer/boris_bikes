@@ -50,5 +50,18 @@ describe DockingStation do
     expect(docking_station.release_bike).to be_falsey
   end
 
+  it 'should be able to dock a broken bike' do
+    bike = Bike.new
+    bike.report_broken
+    subject.dock(bike)
+    expect(subject.bikes.length).to eq 1
+  end
+
+  it 'should be able to dock a working bike' do
+    bike = Bike.new
+    bike.working?
+    subject.dock(bike)
+    expect(subject.bikes.length).to eq 1
+  end
   
 end
